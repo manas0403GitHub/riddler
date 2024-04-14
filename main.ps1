@@ -49,7 +49,7 @@ foreach ($question in $riddles){
     if ($answers[$quesID-1] -eq $riddle){
         Write-Host "Correct!"
         $Score += 1
-    } else {
+    } elseif (-not $answers[$quesID-1] -eq $riddle -and $quesID -gt 0)  {
         Write-Host "Wrong!"
     }
     $riddle = Read-Host -Prompt $question
