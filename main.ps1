@@ -34,6 +34,7 @@ $answers = @(
 )
 
 $quesID = 0
+$Score = 0
 
 Write-Host "
 ||========||		||	   || ||
@@ -47,7 +48,11 @@ Write-Host "
 foreach ($question in $riddles){
     if ($answers[$quesID-1] -eq $riddle){
         Write-Host "Correct!"
+        $Score += 1
+    } else {
+        Write-Host "Wrong!"
     }
     $riddle = Read-Host -Prompt $question
     $quesID += 1
 }
+Write-Host ("$Score/15")
